@@ -26,4 +26,4 @@ COPY mount.cfg /home/steam/gmod_server/garrysmod/cfg/
 COPY server.cfg /home/steam/gmod_server/garrysmod/cfg/
 COPY users.txt /home/steam/gmod_server/garrysmod/data/ulib/
 
-CMD /home/steam/gmod_server/srcds_run -game garrysmod -maxplayers $PLAYER_COUNT +gamemode terrortown +map ttt_Clue_se +host_workshop_collection $WORKSHOP_COLLECTION_ID -authkey $STEAM_API_KEY
+ENTRYPOINT /home/steam/gmod_server/srcds_linux -game garrysmod -maxplayers $PLAYER_COUNT +gamemode terrortown +map ttt_Clue_se +host_workshop_collection $WORKSHOP_COLLECTION_ID -authkey $STEAM_API_KEY

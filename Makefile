@@ -6,4 +6,4 @@ docker_build:
 		-t gmod_ttt_server .
 
 docker_run:
-	docker run -p 27015:27015/udp gmod_ttt_server
+	docker run -d --restart always -p 27015:27015/udp gmod_ttt_server
