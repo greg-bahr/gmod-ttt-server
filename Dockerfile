@@ -9,10 +9,9 @@ ENV WORKSHOP_COLLECTION_ID ${WORKSHOP_COLLECTION_ID}
 ENV STEAM_API_KEY ${STEAM_API_KEY}
 ENV PLAYER_COUNT ${PLAYER_COUNT}
 
-RUN ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/gmod_server +app_update 4020 validate +quit && \
-    mkdir ~/game_content && \
-    ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/game_content/css +app_update 232330 validate +quit && \
-    ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/game_content/tf2 +app_update 232250 validate +quit && \
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/gmod_server +app_update 4020 validate +quit && \
+    mkdir /home/steam/game_content && \
+    /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/game_content/css +app_update 232330 validate +quit && \
     /home/steam/gmod_server/srcds_run -game garrysmod -maxplayers $PLAYER_COUNT +gamemode terrortown +map ttt_Clue_se +host_workshop_collection $WORKSHOP_COLLECTION_ID -authkey $STEAM_API_KEY +quit
 
 COPY mount.cfg /home/steam/gmod_server/garrysmod/cfg/
