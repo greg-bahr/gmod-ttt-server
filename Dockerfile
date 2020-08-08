@@ -19,7 +19,7 @@ RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/s
     /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/game_content/css +app_update 232330 validate +quit
 
 RUN cd /home/steam/gmod_server/garrysmod/addons && \
-    git clone https://github.com/TeamUlysses/ulib %% \
+    git clone https://github.com/TeamUlysses/ulib && \
     git clone https://github.com/TeamUlysses/ulx
 
 COPY mount.cfg /home/steam/gmod_server/garrysmod/cfg/
