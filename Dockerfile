@@ -1,9 +1,13 @@
 FROM cm2network/steamcmd:latest
 EXPOSE 27015/udp
 
-ENV WORKSHOP_COLLECTION_ID 12345
-ENV STEAM_API_KEY 12345
-ENV PLAYER_COUNT 20
+ARG WORKSHOP_COLLECTION_ID
+ARG STEAM_API_KEY
+ARG PLAYER_COUNT
+
+ENV WORKSHOP_COLLECTION_ID ${WORKSHOP_COLLECTION_ID}
+ENV STEAM_API_KEY ${STEAM_API_KEY}
+ENV PLAYER_COUNT ${PLAYER_COUNT}
 
 RUN ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/gmod_server +app_update 4020 validate +quit && \
     mkdir ~/game_content && \

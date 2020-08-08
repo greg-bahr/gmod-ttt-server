@@ -1,4 +1,4 @@
-"STEAM_0:0:37581665"
+"STEAM_0:1:35031032"
 {
         "deny"
         {
@@ -6,6 +6,17 @@
         "allow"
         {
         }
+        "name"  "Jakel"
+        "group" "superadmin"
+}
+"STEAM_0:0:37581665"
+{
+        "allow"
+        {
+        }
         "name"  "greg"
+        "deny"
+        {
+        }
         "group" "superadmin"
 }
