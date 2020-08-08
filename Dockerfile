@@ -1,4 +1,4 @@
-FROM cm2network/steamcmd:latest
+FROM cm2network/steamcmd:root
 EXPOSE 27015/udp
 
 ARG WORKSHOP_COLLECTION_ID
@@ -9,8 +9,8 @@ ENV WORKSHOP_COLLECTION_ID ${WORKSHOP_COLLECTION_ID}
 ENV STEAM_API_KEY ${STEAM_API_KEY}
 ENV PLAYER_COUNT ${PLAYER_COUNT}
 
-RUN apt-get update && \
-    apt-get install -y git
+RUN apt update && \
+    apt install -y git
 
 RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/gmod_server +app_update 4020 validate +quit && \
     mkdir /home/steam/game_content && \
