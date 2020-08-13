@@ -1,9 +1,12 @@
+all: docker_build docker_run
+
 docker_build:
-	docker build \
-		--build-arg STEAM_API_KEY=${STEAM_API_KEY} \
-		--build-arg WORKSHOP_COLLECTION_ID=${WORKSHOP_COLLECTION_ID} \
-		--build-arg PLAYER_COUNT=${PLAYER_COUNT} \
-		-t gmod_ttt_server .
+	docker build -t gmod_ttt_server .
 
 docker_run:
-	docker run -d --restart always -p 27015:27015/udp gmod_ttt_server
+	docker run -d --restart always -p 27015:27015/udp \
+		-e AWS_ACCESS_KEY_ID \
+		-e AWS_SECRET_ACCESS_KEY \
+		-e AWS_DEFAULT_REGION \
+		-e CONFIG_BUCKET \
+		gmod_ttt_server
