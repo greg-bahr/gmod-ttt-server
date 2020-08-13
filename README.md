@@ -1,5 +1,5 @@
 # Basic TTT Server
-This Dockerfile sets up a TTT Server for GMod with content from TF2 and CSS. Also has some configuration to default myself to superadmin and setup some basic config on the server. Make sure to change the rcon password in server.cfg though.
+This Dockerfile sets up a TTT Server for GMod with content from CSS. The configuration is pulled from an S3 bucket on AWS whenever the container starts.
 
 Current environment variables required are:
 - `AWS_ACCESS_KEY_ID`
